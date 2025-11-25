@@ -86,14 +86,23 @@ class Onboarding {
         if (typeof this.onComplete === "function") {
             this.onComplete();
         }
-    }
+    }   
+
+    // ✅ Simple alert function
+    showAlert() {
+        alert("This is onboarding.js file.");
+}
+
+    // ✅ Simple alert function
+    showAlert() {
+        alert("This is onboarding.js file.");
 }
 
 // Usage example:
-const onboarding = new Onboarding([
-    { title: "Welcome!", description: "Thanks for joining our platform." },
-    { title: "Profile Setup", description: "Let’s set up your profile." },
-    { title: "All Done!", description: "You’re ready to go" }
-]);
+// const onboarding = new Onboarding([
+//     { title: "Welcome!", description: "Thanks for joining our platform." },
+//     { title: "Profile Setup", description: "Let’s set up your profile." },
+//     { title: "All Done!", description: "You’re ready to go" }
+// ]);
 
-onboarding.onComplete = () => console.log("Onboarding finished!");
+// onboarding.onComplete = () => console.log("Onboarding finished!");
