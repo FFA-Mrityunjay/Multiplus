@@ -1,9 +1,11 @@
+// onboarding.js
+
 class Onboarding {
     constructor(steps = []) {
         this.steps = steps;
         this.currentStep = 0;
 
-        // CREATE OVERLAY CONTAINER (CHANGE 1)
+        // CHANGE 1 ➤ Overlay container
         this.container = document.createElement("div");
         this.container.id = "onboarding-container";
         this.container.style =
@@ -21,8 +23,8 @@ class Onboarding {
 
         document.body.appendChild(this.container);
 
-        // SMOOTH FADE-IN ANIMATION (CHANGE 2)
-        setTimeout(() => (this.container.style.opacity = 1), 10);
+        // CHANGE 2 ➤ Fade-in animation
+        setTimeout(() => this.container.style.opacity = 1, 10);
 
         this.render();
     }
@@ -30,7 +32,7 @@ class Onboarding {
     render() {
         this.container.innerHTML = "";
 
-        // MAIN CARD
+        // Main box
         const box = document.createElement("div");
         box.style =
             `background: #fff;
@@ -40,7 +42,7 @@ class Onboarding {
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
             position: relative;`;
 
-        // CLOSE (SKIP) BUTTON (CHANGE 3)
+        // CHANGE 3 ➤ Close button
         const closeBtn = document.createElement("div");
         closeBtn.innerText = "✕";
         closeBtn.style =
@@ -62,22 +64,19 @@ class Onboarding {
         const controls = document.createElement("div");
         controls.style = "display: flex; justify-content: space-between; margin-top: 20px;";
 
-        // NEXT BUTTON
+        // CHANGE 4 ➤ Next button text changed for conflict
         const nextButton = document.createElement("button");
-        nextButton.innerText =
-            this.currentStep === this.steps.length - 1 ? "Finish" : "Next";
-        nextButton.style =
-            "padding: 10px 18px; background:#007bff; color:#fff; border:none; border-radius:8px;";
+        nextButton.innerText = this.currentStep === this.steps.length - 1 ? "Done" : "Next Step";
+        nextButton.style = "padding: 10px 18px; background:#007bff; color:#fff; border:none; border-radius:8px;";
         nextButton.onclick = () => this.nextStep();
 
         controls.appendChild(nextButton);
 
-        // BACK BUTTON
+        // Back button
         if (this.currentStep > 0) {
             const backButton = document.createElement("button");
             backButton.innerText = "Back";
-            backButton.style =
-                "padding: 10px 18px; background:#ccc; color:#000; border:none; border-radius:8px;";
+            backButton.style = "padding: 10px 18px; background:#ccc; color:#000; border:none; border-radius:8px;";
             backButton.onclick = () => this.prevStep();
             controls.insertBefore(backButton, nextButton);
         }
@@ -105,7 +104,22 @@ class Onboarding {
         }
     }
 
-    // NEW METHOD: JUMP TO ANY STEP (CHANGE 4)
+    // CHANGE 5 ➤ complete() function modified for conflict
+    complete() {
+        console.log("Onboarding completed! (Feature/Prachi)");
+        this.container.style.opacity = 0;
+        setTimeout(() => {
+            this.container.remove();
+            if (typeof this.onComplete === "function") this.onComplete();
+        }, 300);
+    }
+
+    // CHANGE 6 ➤ showAlert modified for conflict
+    showAlert(message = "This is Feature/Prachi version of onboarding.js") {
+        alert(message);
+    }
+
+    // CHANGE 7 ➤ New method to jump to a specific step
     goToStep(stepNumber) {
         if (stepNumber >= 0 && stepNumber < this.steps.length) {
             this.currentStep = stepNumber;
@@ -114,27 +128,10 @@ class Onboarding {
             console.warn("Invalid step index.");
         }
     }
-
-    complete() {
-        // FADE OUT
-        this.container.style.opacity = 0;
-
-        setTimeout(() => {
-            this.container.remove();
-            if (typeof this.onComplete === "function") {
-                this.onComplete();
-            }
-        }, 300);
-    }
-
-    // SIMPLE ALERT METHOD (CHANGE 5)
-    showAlert(message = "This is onboarding.js file.") {
-        alert(message);
-    }
 }
 
 // =====================
-// USAGE EXAMPLE
+// Usage Example
 // =====================
 const onboarding = new Onboarding([
     { title: "Welcome!", description: "Thanks for joining our platform." },
