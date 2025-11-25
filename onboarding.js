@@ -86,18 +86,23 @@ class Onboarding {
         if (typeof this.onComplete === "function") {
             this.onComplete();
         }
-    }   
+    }
 
-    // ✅ Simple alert function
-    showAlert() {
-        alert("This is onboarding.js file.");
-}
 
-    // ✅ Simple alert function
-    showAlert() {
-        alert("This is onboarding.js file.");
-}
-}
+        // ✅ Simple alert function
+        showAlert() {
+            alert("This is onboarding.js file.");
+        }
+    
+
+        // ✅ Simple alert function
+        showAlert() {
+            alert("This is onboarding.js file.");
+        }
+    }
+
+
+
 
 // Usage example:
 // const onboarding = new Onboarding([
