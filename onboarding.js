@@ -86,7 +86,11 @@ class Onboarding {
         if (typeof this.onComplete === "function") {
             this.onComplete();
         }
-    }
+    }   
+
+    // ✅ Simple alert function
+    showAlert() {
+        alert("This is onboarding.js file.");
 }
 
 // Usage example:
