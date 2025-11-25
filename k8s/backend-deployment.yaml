@@ -1,0 +1,9 @@
+containers:
+  - name: backend
+    image: IMAGE_BACKEND     # placeholder replaced by pipeline
+    env:
+      - name: DB_HOST
+        valueFrom:
+          secretKeyRef:
+            name: mysql-secret
+            key: host
