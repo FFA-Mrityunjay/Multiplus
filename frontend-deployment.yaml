@@ -1,0 +1,6 @@
+containers:
+  - name: frontend
+    image: IMAGE_FRONTEND
+    env:
+      - name: BACKEND_URL
+        value: "http://backend-service.default.svc.cluster.local:8080"

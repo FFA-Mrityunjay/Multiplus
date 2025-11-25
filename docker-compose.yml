@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  backend:
+    image: quay.io/quarkus/ubi-quarkus-native-binary-s2i:latest
+    build:
+      context: ./backend
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      BACKEND_URL: http://localhost:8080

@@ -1,0 +1,14 @@
+simple-fullstack/
+│
+├── frontend/        # Next.js frontend
+│   ├── pages/
+│   │   └── index.js
+│   ├── package.json
+│   └── next.config.js
+│
+├── backend/         # Java Quarkus backend
+│   ├── src/main/java/com/example/HelloResource.java
+│   ├── src/main/resources/application.properties
+│   └── pom.xml
+│
+└── docker-compose.yml (optional for running locally)
