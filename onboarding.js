@@ -91,7 +91,12 @@ class Onboarding {
     // ✅ Simple alert function
     showAlert() {
         alert("This is onboarding.js file.");
-    }
+}
+
+    // ✅ Simple alert function
+    showAlert() {
+        alert("This is onboarding.js file.");
+}
 }
 
 // Usage example:
