@@ -1,0 +1,28 @@
+name: Simple CI-CD for Static Files
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Prepare deployment folder
+        run: |
+          mkdir deploy
+          cp index.html deploy/
+          cp onboarding.js deploy/
+          cp Sample_Table.html deploy/
+          cp test.js deploy/
+          # Add extra files here if needed
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: multiplus-static-files
+          path: deploy/
